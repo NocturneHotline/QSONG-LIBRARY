@@ -8,7 +8,12 @@
 
       <h3>Iterating through Arrays</h3>
       <ul>
-        <li v-for="author in authors" :key="author.id" class="card">
+        <li
+          v-for="author in authors"
+          :key="author.id"
+          class="card"
+          :class="{ highlight: author.name === 'George Orwell' }"
+        >
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -16,7 +21,12 @@
       <h3>Filtering Arrays</h3>
       <p>Authors born after 1850:</p>
       <ul>
-        <li v-for="author in modernAuthors" :key="author.id" class="card">
+        <li
+          v-for="author in modernAuthors"
+          :key="author.id"
+          class="card"
+          :class="{ highlight: author.name === 'George Orwell' }"
+        >
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -188,5 +198,14 @@ ul {
   opacity: 1 !important;
   filter: none !important;
   color: #000 !important;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #1e272e;
+  text-shadow:
+    0 0 5px rgba(255, 235, 59, 0.8),
+    0 0 10px rgba(255, 235, 59, 0.6);
+  background-color: #fffbc5;
 }
 </style>
